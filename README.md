@@ -2,7 +2,7 @@
 
 ## 1. Introduction
 
-This repository evaluates reliability, calibration, and robustness of LLMs `meta-llama/Llama-3.1-8B-Instruct` across temperature and perturbation settings.  
+This repository evaluates reliability, calibration, and robustness of `meta-llama/Llama-3.1-8B-Instruct` across temperature and perturbation settings.  
 It contains **two subprojects**:
 
 - **Section 5 — MCQ subproject**: multiple-choice calibration / QRC experiments (ARC, OpenBook). Files: `qrc_experiment.sh`, `qrc_with_heatmap.py`. Results summarized in `qrc_llama_presentation.html`.
