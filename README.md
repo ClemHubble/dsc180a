@@ -1,4 +1,4 @@
-# Llama-3.1-8B-Instruct Analysis
+# Uncertainty Quantification in LLMs
 
 Welcome to our DSC 180A Capstone Repo! This repo contains code for different methods for quantifying LLM uncertainty. We specifically focus on Llama-3.1-8B-Instruct's performance. Each form of analysis is in its own branch.
 
