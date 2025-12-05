@@ -1,6 +1,6 @@
 # Llama-3.1-8B-Instruct Analysis
 
-Welcome to our DSC 180A Capstone Repo! This repo contains code for different methods of analyzing Llama-3.1-8B-Instruct's performance. Each form of analysis is in its own branch.
+Welcome to our DSC 180A Capstone Repo! This repo contains code for different methods for quantifying LLM uncertainty. We specifically focus on Llama-3.1-8B-Instruct's performance. Each form of analysis is in its own branch.
 
 ## QRC
 This branch implements a full evaluation pipeline for Quantile Risk Calibration (QRC) on Llama-3.1-8B-Instruct, focusing on how the model’s confidence behaves under different sampling conditions. QRC is a tail-focused calibration metric that examines model performance on the top-k% most confident predictions—in our case, the top 10%. Unlike traditional accuracy or ECE, which average over all predictions, QRC isolates the model’s strongest claims and tests whether high confidence actually corresponds to high correctness.  
