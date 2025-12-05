@@ -1,4 +1,4 @@
-# Bayesian PEFT: Uncertainty Quantification for Large Language Models
+# Bayesian LORA through Backpropagation(BLoB) PEFT: Uncertainty Quantification for Large Language Models
 
 This repository contains implementations of Bayesian uncertainty quantification methods for Parameter-Efficient Fine-Tuning (PEFT) of Large Language Models, supporting both **multiple-choice QA** and **open-ended generative QA** tasks.
 
@@ -183,14 +183,14 @@ For open-ended QA, the model generates free-form text answers that are evaluated
 python run/main.py \
     --model meta-llama/Llama-3.1-8B-Instruct \
     --model-type causallm \
-    --dataset TriviaQA \                # TriviaQA, SQuADV2, TruthfulQA
+    --dataset TriviaQA \                # TriviaQA, TruthfulQA
     --dataset-type oedataset \          # Open-ended dataset
     --modelwrapper blob \
     --eval-mode generative \            # REQUIRED for generative QA
     --generative-eval-method nli \      # nli, llm_judge, or string_match
     --max-new-tokens 50 \               # Max tokens to generate
     --generation-temperature 0.7 \
-    --max-seq-len 2048 \                # Important for long contexts (SQuAD)
+    --max-seq-len 2048 \                # Important for long contexts 
     --max-train-steps 2000 \
     --batch-size 2 \
     --bayes-eval-n-samples 5 \
@@ -205,8 +205,7 @@ python run/main.py \
 - `--eval-mode generative`: REQUIRED - enables text generation evaluation
 - `--generative-eval-method`: Choose evaluation method (see below)
 - `--max-new-tokens`: Limit generation length (50 recommended)
-- `--max-seq-len`: Important for datasets with long contexts (e.g., SQuADv2 needs 2048+)
-
+- `--max-seq-len`: Important for datasets with long contexts 
 ### Using the Convenience Script
 
 For easier experiment management, use the provided Python wrapper:
@@ -404,10 +403,6 @@ For Bayesian methods:
 | Qwen2.5-7B | 2-4 | 1-2 | ~40GB |
 
 ### Dataset-Specific Notes
-
-**SQuADv2:**
-- Has long contexts, use `--max-seq-len 2048` or higher
-- Use `--testing-set val` (no test split available)
 
 **TriviaQA:**
 - Answers can have multiple valid forms
