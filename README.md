@@ -15,6 +15,24 @@ Open Ended Question Answer Datasets:
 - [TruthfulQA](https://huggingface.co/datasets/domenicrosati/TruthfulQA)
 - [TriviaQA](https://huggingface.co/datasets/mandarjoshi/trivia_qa)
 
+## Repo Structure
+```
+
+spuq
+├── spuq_code/
+│   ├── aggregation.py
+│   ├── llms.py
+│   ├── perturbation.py
+│   ├── run.py
+│   ├── spuq.py
+│   └── text_sim.py
+├── .DS_Store
+├── README.md
+└── requirements.txt
+
+```
+
+
 ## Configuration
 
 1. Set up environment and download dependencies.
@@ -34,10 +52,33 @@ pip install huggingface-hub
 huggingface-cli login
 # paste your token when prompted
 ```
-3. Download datasets
+3. Download datasets linked above and place them into spuq_code folder
 4. Run run.py (located in spuq_code folder) to see results
 
 ```bash
 cd spuq_code
 python run.py
+```
+
+## Modifications
+
+To change perturbation type, modify line 6 of run.py so that the perturbation parameter is one of the following:
+- `paraphrasing`
+- `system_message`
+- `dummy_token`
+
+To change the aggregation method, modify line 6 of run.py so that the aggregation parameter is one of the following:
+- Rouge Score:
+    - `rouge1`
+    - `rouge2`
+    - `rougeL`
+- Sentence-BERT embedding cosine similarity:
+    - `sbert`
+- BERT-Score
+    - `bertscore`
+
+As a default, run.py will use `paraphrasing` as the perturbation method and `rougeL` as the aggregation method.
+
+```
+spuq = SPUQ(llm=llm, perturbation='paraphrasing', aggregation='rougeL', n_perturb=3)
 ```
